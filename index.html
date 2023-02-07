@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Game</title>
+</head>
+<style>
+    .container{
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .main{
+    width: 40%;
+    height: 40vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(243, 22, 22);
+    align-items: center;
+    border: 2px solid;
+    border-radius: 10px;
+    }
+    #lover{
+        position: relative;
+    left: 49px;
+    padding: 10px;
+    }
+    #user{
+        padding: 10px;
+    }
+    #btn{
+        margin: 13px;
+    padding: 10px;
+    border-radius: 14px;
+    color: black;
+    background: greenyellow;
+    }
+
+</style>
+
+<body>
+
+    <div class="container">
+        <h1>Check Your Love Percentage....</h1><span id="percent"></span>
+        <div class="main">
+            <div>
+             <h1>Your Name</h1>
+             <input type="text" id="user" placeholder="type....">
+            </div>
+
+            <div>
+                <h1>Your Partner Name</h1>
+                <input type="text" id="lover" placeholder="type....">
+
+
+            </div>
+            <div class="btn">
+                <button id="btn">Result</button>
+            </div>
+        </div>
+        <div id="error"></div>
+    </div>
+      
+</body>
+<script>
+
+    const btn =document.getElementById("btn")
+    const error = document.getElementById('error')
+    const percent = document.getElementById('percent')
+    
+
+    btn.addEventListener("click",()=>{
+
+        
+    const user = document.getElementById("user").value
+    const lover = document.getElementById("lover").value
+    console.log(user.length)
+        if(user.length <=3 && lover.length <=3){
+            error.innerText = "Kindly Type The Name Greater Then 3 Charachter"
+        
+
+        }else{
+           let va =Math.round(Math.random(100)*100)
+           percent.innerText =  "your LOVE PERCENT IS  " + va + "%"
+        }
+    })
+</script>
+
+</html>
